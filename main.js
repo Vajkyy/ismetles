@@ -9,16 +9,21 @@ objektumlista - adat.js
 KEPEK mappa
 Virág osztály - egyetlen virág megjelenítése
 */
+
+const cikk = document.querySelector("article");
 document.getElementById("virag").addEventListener("click", () => {
-  new Viragok(viragLista, document.querySelector("article"));
+  cikk.innerHTML = "";
+  new Viragok(viragLista, cikk);
+});
+document.getElementById("kezdolap").addEventListener("click", () => {
+  cikk.innerHTML = "";
+  new AdminViragok(viragLista, cikk);
 });
 
 window.addEventListener("kivalaszt", (event) => {
   console.log(event.detail);
 });
-document.getElementById("kezdolap").addEventListener("click", () => {
-  new AdminViragok(viragLista, document.querySelector("article"));
-});
+
 
 /* legyen egy admin felület, ahol táblázatosan listázom a virágokat, és ott legyen egy űrlap is, 
 ahol új virágot tudok felvinni 
